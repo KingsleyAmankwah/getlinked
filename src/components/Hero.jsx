@@ -1,5 +1,10 @@
 import React from "react";
 import starIcon from "../assets/star.png";
+import backgroundImg from "../assets/man.png";
+import bulbImg from "../assets/bulb.png";
+import chainImg from "../assets/chain.png";
+import collisionImg from "../assets/collision.png";
+import glowImg from "../assets/glow.png";
 
 function Hero() {
   return (
@@ -38,9 +43,88 @@ function Hero() {
         </div>
       </div>
 
-      <div className="showcase max-width">
-        <div className="first"></div>
-        <div className="second"></div>
+      <div className="showcase container max-width text-white">
+        <div className="flex flex-col lg:flex-row">
+          {/* First Div */}
+          <div className="lg:w-1/2 p-8 lg:my-4 flex flex-col text-center lg:text-left">
+            {/* H1 with SVG */}
+            <h1 className=" text-3xl lg:text-7xl font-bold relative">
+              getlinked
+              <span className="absolute md:-top-12 -top-4 left-[66%] md:left-[65%] transform -translate-x-1/2">
+                <img
+                  src={bulbImg}
+                  className="w-5 h-6 md:w-[3.3rem] md:h-[4.5rem]"
+                  alt=""
+                />
+              </span>
+              {""}Tech
+            </h1>
+
+            {/* H2 with ImgS */}
+            <h2 className="text-3xl md:text-7xl font-bold flex justify-center items-center md:text-left">
+              Hackathon <span className="tertiary-color">1.0</span>
+              <div className="ml-2 flex flex-row md:items-center md:justify-center">
+                <img
+                  src={chainImg}
+                  className="md:w-20 md:h-20 w-8 h-8"
+                  alt=""
+                />
+                <img
+                  src={collisionImg}
+                  className="md:w-20 md:h-20 w-8 h-8"
+                  alt=""
+                />
+              </div>
+            </h2>
+
+            {/* Paragraph */}
+            <p className="my-8 text-xl">
+              Participate in getlinked tech Hackathon 2023 and stand a chance to
+              win a big prize.
+            </p>
+
+            {/* Button */}
+
+            <div className="mb-8 sm:flex sm:items-center sm:justify-center block">
+              <a
+                href="/registration"
+                className="primary-bg mt-8 px-6 py-3 rounded-[0.25rem] w-36 sm:w-auto sm:ml-0 sm:mr-auto"
+              >
+                Register
+              </a>
+            </div>
+
+            {/* Timer */}
+            <div className="mt-8 flex flex-row space-x-2 items-center justify-center w-full md:items-start md:justify-start">
+              <div className="p-2 rounded">
+                <span className="timer">00</span>H
+              </div>
+              <div className="p-2 rounded">
+                <span className="timer">00</span>M
+              </div>
+              <div className="p-2 rounded">
+                <span className="timer">00</span>s
+              </div>
+            </div>
+          </div>
+
+          {/* Second Div */}
+          <div className="lg:w-1/2 relative">
+            {/* Background SVG */}
+            <img
+              src={glowImg}
+              alt=""
+              className="w-full h-full absolute top-0 left-0"
+            />
+
+            {/* Background Image */}
+            <img
+              src={backgroundImg}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
