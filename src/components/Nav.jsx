@@ -69,7 +69,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="/registration"
+              href="/register"
               className="primary-bg text-white px-6 py-3 rounded-[0.25rem]"
             >
               Register
@@ -104,7 +104,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/registration"
+                href="/register"
                 className="primary-bg text-white px-6 py-3 rounded-[0.25rem]"
               >
                 Register
