@@ -256,7 +256,7 @@ function Contact() {
                 </h2>
               </div>
               <form
-                className="rounded-lg bg-opacity-3 p-4 md:p-4"
+                className="rounded-lg bg-opacity-3 p-4 md:p-4 relative z-50"
                 onSubmit={handleSubmit}
               >
                 <input
