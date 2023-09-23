@@ -2,33 +2,15 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "../index.css";
 import registerImg from "../assets/thumbsUp.png";
+import starImg from "../assets/starPurple.png";
+import whiteStar from "../assets/star.png";
+import greyStar from "../assets/greyStar.png";
+import lens from "../assets/lens.png";
+import manImg from "../assets/manW.png";
+import ladyImg from "../assets/ladyW.png";
 
 function Register() {
   const [categories, setCategories] = useState([]);
-  const fetchCategories = async () => {
-    try {
-      const baseUrl = "https://backend.getlinked.ai";
-      const api = `${baseUrl}/hackathon/categories-list`;
-
-      const response = await fetch(api);
-
-      if (response.ok) {
-        const data = await response.json();
-        setCategories(data); // Set the category list in state
-        console.log("Category List:", data);
-      } else {
-        console.error("Failed to fetch category list");
-      }
-    } catch (error) {
-      console.error("Error fetching category list:", error);
-    }
-  };
-
-  useEffect(() => {
-    // Fetch the category list when the component mounts
-    fetchCategories();
-  }, []);
-
   const [formData, setFormData] = useState({
     team_name: "",
     phone_number: "",
@@ -49,13 +31,34 @@ function Register() {
     });
   };
 
+  const fetchCategories = async () => {
+    try {
+      const baseUrl = "https://backend.getlinked.ai";
+      const api = `${baseUrl}/hackathon/categories-list`;
+
+      const response = await fetch(api);
+
+      if (response.ok) {
+        const data = await response.json();
+        setCategories(data);
+      } else {
+        console.error("Failed to fetch category list");
+      }
+    } catch (error) {
+      console.error("Error fetching category list:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.privacy_policy_accepted) {
-      // Check if the privacy policy checkbox is not checked
       Swal.fire({
-        icon: "error",
+        icon: "info",
         text: "Please accept the terms and conditions and privacy policy.",
         customClass: {
           title: "custom-sweetalert",
@@ -64,22 +67,24 @@ function Register() {
         },
         buttonsStyling: false,
       });
-      return; // Prevent form submission if checkbox is not checked
+      return;
     }
 
     try {
       const baseUrl = "https://backend.getlinked.ai";
       const apiUrl = `${baseUrl}/hackathon/registration`;
 
-        // Convert the group_size to an integer
-    formData.group_size = parseInt(formData.group_size, 10);
+      const formDataCopy = {
+        ...formData,
+        group_size: parseInt(formData.group_size, 10),
+      };
 
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataCopy),
       });
 
       if (response.ok) {
@@ -97,8 +102,14 @@ function Register() {
         // Show SweetAlert2 success message
         Swal.fire({
           icon: "success",
-          title: "Registration Successful",
-          text: "You are now registered for the event.",
+          title: "Congratulations you have Successfully Registered",
+          text: "Yes, it was easy and you did it!. check your mail box for next steps",
+          confirmButtonText: "Go Back",
+          imageUrl:
+            "https://github.com/KingsleyAmankwah/edu-hub/blob/master/src/assets/success.png?raw=true",
+          imageAlt: "Confirm_image",
+          imageHeight: "200",
+          imageWidth: "200",
           customClass: {
             title: "custom-sweetalert",
             popup: "custom-sweetalert",
@@ -117,7 +128,7 @@ function Register() {
 
   return (
     <div>
-      <div className="bg-color text-white w-full h-screen">
+      <div className="bg-color text-white w-full md:h-screen">
         <nav className="p-4">
           <div className="hidden mx-auto md:flex justify-between items-center max-width">
             <div className="text-white font-bold text-[2.25rem]">
@@ -158,19 +169,63 @@ function Register() {
 
         <div className="max-width container md:mt-28">
           <div className="flex justify-center w-full items-center md:flex-row flex-col h-full md:h-[70vh]">
-            <div className="w-1/2">
-              <img src={registerImg} alt="reggister_img" />
+            <div className="w-1/2 relative">
+              <img
+                src={starImg}
+                alt="star"
+                className="absolute left-24 top-12 hidden md:block"
+              />
+              <img
+                src={lens}
+                alt="lens"
+                className="absolute w-[70%] h-[70%] rounded-full rotate-180"
+              />
+              <img src={registerImg} alt="register_img" className="relative" />
+              <img
+                src={starImg}
+                alt="star"
+                className="absolute md:right-24 bottom-28 right-0 w-5"
+              />
+              <img
+                src={greyStar}
+                alt="star"
+                className="hidden md:block absolute bottom-10 left-24"
+              />
             </div>
             <div className="contact-form flex flex-col text-left md:w-1/2 w-full h-full">
               <div>
-                <h1 className="tertiary-color text-xl font-semibold pl-7 md:pl-4">
+                <div className="relative">
+                  <img
+                    src={greyStar}
+                    alt="star"
+                    className="absolute right-24 top-0"
+                  />
+                </div>
+
+                <h1 className="absolute top-0 md:relative tertiary-color text-2xl font-semibold pl-7 md:pl-4">
                   Register
                 </h1>
-                <p className="pl-7">Be part of something_________</p>
-                <h2 className="text-xl pl-7 md:pl-4">CREATE YOUR ACCOUNT</h2>
+
+                <p className="pl-4 relative">
+                  Be part of something{" "}
+                  <span className="tertiary-color">_______________</span>
+                  <img
+                    src={ladyImg}
+                    alt="lady_walking"
+                    className="absolute -top-2 left-44"
+                  />
+                  <img
+                    src={manImg}
+                    alt="man_walking"
+                    className="absolute -top-3 left-48"
+                  />
+                </p>
+                <h2 className="relative text-xl pl-7 md:pl-4">
+                  CREATE YOUR ACCOUNT
+                </h2>
               </div>
               <form
-                className="rounded-lg bg-opacity-3 p-4"
+                className="rounded-lg bg-opacity-3 p-4 relative"
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col md:flex-row w-full justify-between">
@@ -194,6 +249,7 @@ function Register() {
                       name="phone_number"
                       value={formData.phone_number}
                       onChange={handleChange}
+                      maxLength="13"
                       className="w-full p-2 my-2 rounded-sm border bg-transparent text-white"
                       required
                     />
@@ -247,11 +303,21 @@ function Register() {
                     <label htmlFor="">Group Size</label>
                     <select
                       name="group_size"
-                      className="w-full p-2 my-2 rounded-sm border  bg-transparent"
+                      className="w-full p-2 my-2 rounded-sm border relative z-100 bg-transparent"
+                      value={formData.group_size}
+                      onChange={handleChange}
                     >
-                      <option value="">Select</option>
+                      <option>Select</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
                     </select>
                   </div>
                 </div>
