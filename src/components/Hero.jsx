@@ -87,7 +87,7 @@ function Hero() {
 
             <div className="mb-8 sm:flex sm:items-center sm:justify-center block">
               <a
-                href="/registration"
+                href="/register"
                 className="primary-bg mt-8 px-6 py-3 rounded-[0.25rem] w-36 sm:w-auto sm:ml-0 sm:mr-auto"
               >
                 Register
