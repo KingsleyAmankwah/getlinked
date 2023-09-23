@@ -61,11 +61,11 @@ function Overview() {
       <div className="border border-x-0 border-y-[#FFFFFF2E] text-white">
         <div className="max-width py-16">
           <div className="relative flex flex-col justify-center items-center md:flex-row md:space-x-20">
-            {/* <img
+            <img
               src={lensImg}
-              alt=""
-              className="absolute top-4 -left-[55%] w-full h-full opacity-50 rounded-full"
-            /> */}
+              alt="lens"
+              className="hidden md:block top-0 right-0 bottom-0 left-0 absolute w-full h-full rounded-full md:-left-[50%]"
+            />
             <div className="w-full md:w-2/3 p-4 text-center md:text-left mt-8 md:order-1 order-2">
               <div className=" relative flex flex-col md:flex-row justify-between w-full text-center md:text-left">
                 {/* Apply text-center on mobile */}
@@ -78,7 +78,7 @@ function Overview() {
 
                 <img
                   src={star}
-                  alt=""
+                  alt="star"
                   className="md:absolute md:left-[50%] md:top-0 w-4 h-4 ml-auto md:ml-0"
                 />
               </div>
@@ -95,20 +95,19 @@ function Overview() {
                 </p>
                 <img
                   src={star}
-                  alt=""
+                  alt="star"
                   className="absolute right-0 bottom-0 w-4 h-4"
                 />
               </div>
             </div>
 
-            {/* Image */}
             <div className="relative mb-4 md:order-2 order-1">
               {/* <img
                 src={lensImg}
-                alt=""
-                className="absolute top-0 left-0 w-full h-full rounded-full"
+                alt="lens"
+                className="absolute top-0 left-0 w-full h-full rounded-full rotate-90 -bottom-[50%]"
               /> */}
-              <img src={ladyImg} alt="Your" className="w-full" />
+              <img src={ladyImg} alt="lady_sitting" className="w-full" />
             </div>
           </div>
         </div>
@@ -161,7 +160,7 @@ function Overview() {
               <img
                 src={lensImg}
                 alt=""
-                className="absolute bottom-0 w-[50%] h-[50%] rounded-full"
+                className="absolute bottom-0 w-[100%] h-[100%] rounded-full rotate-180"
               />
 
               <img
@@ -240,8 +239,8 @@ function Overview() {
 
                 <img
                   src={lensImg}
-                  alt=""
-                  className="absolute right-0 -bottom-[8rem] w-[50%] h-[50%] rounded-full"
+                  alt="lens"
+                  className="hidden md:block absolute right-0 -bottom-[8rem] w-[80%] h-[80%] rounded-full rotate-45"
                 />
               </div>
             </div>
