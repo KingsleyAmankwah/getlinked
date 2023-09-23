@@ -298,3 +298,12 @@ li {
     transform: rotate(360deg);
   }
 }
+
+select option {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #150e28;
+  color: #fff;
+  cursor: pointer;
+}
