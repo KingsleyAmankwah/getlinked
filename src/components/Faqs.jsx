@@ -75,7 +75,8 @@ function Faqs() {
         <div className="max-width py-16">
           <div className="relative flex flex-col w-full justify-between md:flex-row md:space-x-20">
             <div className="w-full md:w-2/3 p-4 text-center md:text-left">
-              <div className="text-center md:text-left">
+              <div className="text-center md:text-left relative">
+                <img src={bigStar} alt="star" className="my-8" />
                 <h1 className="text-3xl md:text-4xl font-bold">
                   Frequently Ask
                 </h1>
