@@ -3,11 +3,12 @@ import Swal from "sweetalert2";
 import "../index.css";
 import registerImg from "../assets/thumbsUp.png";
 import starImg from "../assets/starPurple.png";
-import whiteStar from "../assets/star.png";
+// import whiteStar from "../assets/star.png";
 import greyStar from "../assets/greyStar.png";
 import lens from "../assets/lens.png";
 import manImg from "../assets/manW.png";
 import ladyImg from "../assets/ladyW.png";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [categories, setCategories] = useState([]);
@@ -136,24 +137,24 @@ function Register() {
             </div>
             <ul className="hidden md:flex justify-between w-[60%]">
               <li>
-                <a href="#time" className="nav-link">
+                <Link to="/" className="nav-link">
                   Timeline
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#overview" className="nav-link">
+                <Link to="/" className="nav-link">
                   Overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="nav-link">
+                <Link to="/" className="nav-link">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#c" className="tertiary-color text-base">
+                <Link to="/contact" className="text-base tertiary-color">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
                 <a
