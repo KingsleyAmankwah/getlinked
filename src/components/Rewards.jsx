@@ -66,17 +66,17 @@ function Rewards() {
             alt="lens"
             className="absolute w-full h-full rounded-full rotate-180 left-0 top-0"
           />
-          <img src={starImg} alt="star" />
+          <img src={starImg} alt="star" className="absolute left-0" />
           <img
             src={sponsorImg}
             alt="sponsor_Img"
             className=" my-8 md:w-[70%] md:h-[70%] w-full"
           />
-          <img
+          {/* <img
             src={lens}
             alt="lens"
             className="absolute w-full h-full rounded-full"
-          />
+          /> */}
         </div>
       </div>
     </div>
