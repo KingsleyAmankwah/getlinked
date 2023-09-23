@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "../index.css";
+import { Link } from "react-router-dom";
+import starImg from "../assets/starPurple.png";
+import whiteStar from "../assets/star.png";
+import lens from "../assets/lens.png";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -74,24 +78,24 @@ function Contact() {
             {/* Desktop Menu */}
             <ul className="hidden md:flex justify-between w-[60%]">
               <li>
-                <a href="#time" className="nav-link">
+                <Link to="/" className="nav-link">
                   Timeline
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#overview" className="nav-link">
+                <Link to="/" className="nav-link">
                   Overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="nav-link">
+                <Link to="/" className="nav-link">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#c" className="tertiary-color text-base">
+                <Link to="/contact" className="text-base tertiary-color">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -106,9 +110,59 @@ function Contact() {
         </nav>
 
         <div className="max-width container mt-28">
+          <div className="md:hidden block cursor-pointer absolute top-10 left-8 z-[1000]">
+            <Link to="/">
+              <svg
+                width="23"
+                height="23"
+                viewBox="0 0 23 23"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Group 1">
+                  <circle
+                    id="Ellipse 4"
+                    cx="11.5"
+                    cy="11.5"
+                    r="11"
+                    stroke="url(#paint0_linear_177_298)"
+                  />
+                  <path
+                    id="Vector 5"
+                    d="M12.2666 9.20001L9.19995 12.2667L12.2666 14.5667"
+                    stroke="white"
+                  />
+                </g>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_177_298"
+                    x1="11.5"
+                    y1="0"
+                    x2="11.5"
+                    y2="23"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#903AFF" />
+                    <stop offset="1" stop-color="#FF26B9" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </Link>
+          </div>
           <div className="flex justify-center w-full items-center md:flex-row flex-col h-full md:h-[60vh]">
+            <img
+              src={starImg}
+              alt="star"
+              className="absolute left-28 top-24 md:top-28 w-5"
+            />
+            <img
+              src={lens}
+              alt="lens"
+              className="absolute md:w-[70%] md:h-[70%] w-1/2 h-1/2 rounded-full rotate-180 top-0 left-0"
+            />
+
             <div className="w-full md:w-1/2 md:order-1 order-2">
-              <div className="hidden md:block p-8">
+              <div className="hidden md:block p-8 relative">
                 <h1 className="text-[#D434FE] text-4xl font-semibold">
                   Get in touch
                 </h1>
@@ -240,6 +294,18 @@ function Contact() {
                   </button>
                 </div>
               </form>
+              <div className="relative">
+                <img
+                  src={starImg}
+                  alt="star"
+                  className="absolute bottom-10 w-5"
+                />
+                <img
+                  src={whiteStar}
+                  alt="star"
+                  className="absolute right-0 w-3"
+                />
+              </div>
             </div>
           </div>
         </div>
