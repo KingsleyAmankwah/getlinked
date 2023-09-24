@@ -26,7 +26,7 @@
 Status
 
 <h4 align="center">
-	🚧  Getlinked 🚀 In Production...  🚧
+	🚧  Getlinked 🚀 In Production  🚧
 </h4>
 
 <hr>
